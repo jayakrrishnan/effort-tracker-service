@@ -1,7 +1,7 @@
 # effort-tracker-service
 node service
 
-##register
+## register
 POST: http://localhost:8080/api/user/register 
 sample req: 
 {
@@ -11,7 +11,7 @@ sample req:
 "password":"jay"
 }
 
-##login
+## login
 POST: http://localhost:8080/api/user/login
 sample req:
 {
@@ -19,7 +19,7 @@ sample req:
 "password":"jay"
 }
 
-##insert effort
+## insert effort
 POST: http://localhost:8080/api/tracker/
 sample req:
 {
@@ -42,7 +42,7 @@ sample req:
 "comments":"enjoyy more"
 }
 
-##fetch effort
+## fetch effort
 POST: http://localhost:8080/api/tracker/fetch
 sample req:
 {
@@ -51,7 +51,7 @@ sample req:
 "projectId":1
 }
 
-##update effort
+## update effort
 PUT: http://localhost:8080/api/tracker/
 sample req;
 {
