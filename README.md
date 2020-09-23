@@ -53,7 +53,7 @@ sample req:
 
 ## update effort
 PUT: http://localhost:8080/api/tracker/
-sample req;
+sample req:
 {
 "userId":"U60907",
 "effortDate":"2020-09-23",
@@ -73,3 +73,6 @@ sample req;
 "rsnForWFH":"BCP",
 "comments":"enjoyy more"
 }
+
+## delete effort
+DELETE: http://localhost:8080/api/tracker?userId=U60907&effortDate=2020-09-22&projectId=2
