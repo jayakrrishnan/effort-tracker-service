@@ -71,7 +71,9 @@ exports.login = async function (req, res) {
               );
               if (comparision) {
                 res.status(200).send({
-                  success: "login sucessfull",
+                  userId:results[0].user_id,
+                  email:results[0].email,
+                  roleId:results[0].role_id
                 });
               } else {
                 res.status(409).send({

@@ -9,7 +9,7 @@ POST: http://localhost:8080/api/user/register
 sample req: 
 {
 "userId":"U60907",
-"email":"U60907@ust-global.com",
+"email":"U60907@u-cheat.com",
 "role":1,
 "password":"jay"
 }
