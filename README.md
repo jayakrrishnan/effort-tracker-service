@@ -1,6 +1,9 @@
 # effort-tracker-service
 node service
 
+## health
+GET: http://localhost:8080/api/status
+
 ## register
 POST: http://localhost:8080/api/user/register 
 sample req: 
