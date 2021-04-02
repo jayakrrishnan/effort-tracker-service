@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 const bcrypt = require("bcrypt");
+var jwt = require('jsonwebtoken');
 const saltRounds = 10;
 
 const pool = mysql.createPool({
@@ -9,6 +10,8 @@ const pool = mysql.createPool({
   database: "effort_tracker",
   connectionLimit: 20,
 });
+
+var jwtSecret = 'effort-tracker';
 
 exports.register = async function (req, res) {
   const password = req.body.password;
@@ -70,10 +73,12 @@ exports.login = async function (req, res) {
                 results[0].passcode
               );
               if (comparision) {
+                var token = jwt.sign({email: results[0].email}, jwtSecret);
                 res.status(200).send({
                   userId:results[0].user_id,
                   email:results[0].email,
-                  roleId:results[0].role_id
+                  roleId:results[0].role_id,
+                  token:token
                 });
               } else {
                 res.status(409).send({

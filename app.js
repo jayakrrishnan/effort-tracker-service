@@ -17,6 +17,7 @@ const pool = mysql.createPool({
   user: "root",
   password: "root",
   database: "effort_tracker",
+  insecureAuth:true
 });
 
 router.get("/status", (req, res) => {

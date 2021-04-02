@@ -59,9 +59,9 @@ exports.fetchDailyEffort = async function (req, res) {
   var param = [];
   var selectQuery =
     "select l.user_id as userId,l.email as email ,l.role_id as roleId," +
-    "de.effort_date as effortDate,de.project_id as projectId,de.project_task_hr as projectTaskHr," +
+    "DATE_FORMAT(de.effort_date,'%Y-%m-%e') as effortDate,de.project_id as projectId,de.project_task_hr as projectTaskHr," +
     "de.project_meeting_hr as projectMeetingHr,de.training_hr as trainingHr," +
-    "de.vdi_unavail_hr as vdiUnavailH,de.leave_hr as leaveHr,de.other_hr as otherHr," +
+    "de.vdi_unavail_hr as vdiUnavailHr,de.leave_hr as leaveHr,de.other_hr as otherHr," +
     "de.wfo_hr as wfoHr,de.wfh_hr as wfhHr,de.rework_hr as reworkHr,de.adhoc_hr as adhocHr," +
     "de.reason_for_not_working as rsnForNotWorking,de.comment_for_not_working as commentForNotWorking," +
     "de.reason_for_wfh as rsnForWFH,de.comments as comments ,de.last_change_ts as lastChangeTs " +
@@ -83,7 +83,6 @@ exports.fetchDailyEffort = async function (req, res) {
   selectQuery = selectQuery.concat(
     " order by de.effort_date desc,de.project_id "
   );
-  console.log("query: " + selectQuery);
   pool.getConnection((err, connection) => {
     if (err) {
       console.log("error: " + err);
